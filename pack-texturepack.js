@@ -19,6 +19,7 @@ var image2tp = {
     obsidian: 'obsidian',
     stone_cobble: 'stonebrick', // cobblestone
     stone_smooth: 'stone',
+    stone_bedrock: 'bedrock',
     brick_stone_smooth: 'stonebricksmooth',
     gravel: 'gravel',
 
