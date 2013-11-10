@@ -23,6 +23,14 @@ var image2tp = {
     brick_stone_smooth: 'stonebricksmooth',
     gravel: 'gravel',
 
+    ore_gold: 'oreGold',
+    ore_coal: 'oreCoal',
+    ore_redstone: 'oreRedstone',
+    ore_iron: 'oreIron',
+    ore_lapis_lazuli: 'oreLapis',
+    ore_emerald: 'oreEmerald',
+    ore_diamond: 'oreDiamond',
+
     glass: 'glass',
     glass_thin_top: 'thinglass_top',
 
