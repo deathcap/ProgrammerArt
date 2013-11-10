@@ -20,6 +20,7 @@ var image2tp = {
     stone_cobble: 'stonebrick', // cobblestone
     stone_smooth: 'stone',
     brick_stone_smooth: 'stonebricksmooth',
+    gravel: 'gravel',
 
     glass: 'glass',
     glass_thin_top: 'thinglass_top',
