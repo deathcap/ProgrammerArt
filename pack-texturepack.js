@@ -17,7 +17,9 @@ fs.readdir(root, function(err, files) {
         var name = 'textures/blocks/' + file;
 
         console.log('Adding ' + file + ' as ' + name);
-        zip.addLocalFile(root + '/' + file, name);
+
+        buffer = fs.readFileSync(root + '/' + file);
+        zip.addFile(name, buffer);
     }
 
     zip.writeZip(out);
