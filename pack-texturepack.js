@@ -49,7 +49,16 @@ var image2tp = {
     wool_brown: 'cloth_12',
     wool_green: 'cloth_13',
     wool_red: 'cloth_14',
-    wool_black: 'cloth_15'
+    wool_black: 'cloth_15',
+
+    rail_straight: 'rail',
+    rail_turn: 'rail_turn',
+    rail_detector: 'detectorRail',
+    rail_activator_off: 'activatorRail',
+    rail_activator_on: 'activatorRail_powered',
+    rail_powered_off: 'goldenRail',
+    rail_powered_on: 'goldenRail_powered',
+
 };
 
 fs.readdir(root, function(err, files) {
