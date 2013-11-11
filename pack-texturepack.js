@@ -66,6 +66,8 @@ var image2tp = {
     rail_activator_on: 'activatorRail_powered',
     rail_powered_off: 'goldenRail',
     rail_powered_on: 'goldenRail_powered',
+    redstone_dust_line: 'redstoneDust_line',
+    redstone_dust_cross: 'redstoneDust_cross',
 
     cobweb: 'web',
 
