@@ -75,6 +75,7 @@ var image2tp = {
 
     sponge: 'sponge',
     sand: 'sand',
+    vine: 'vine',
 };
 
 fs.readdir(root, function(err, files) {
