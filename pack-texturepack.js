@@ -72,6 +72,9 @@ var image2tp = {
     torch: 'torch',
     torch_redstone_off: 'redtorch',
     torch_redstone_on: 'redtorch_lit',
+
+    sponge: 'sponge',
+    sand: 'sand',
 };
 
 fs.readdir(root, function(err, files) {
