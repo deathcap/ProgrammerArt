@@ -68,6 +68,10 @@ var image2tp = {
     rail_powered_on: 'goldenRail_powered',
 
     cobweb: 'web',
+
+    torch: 'torch',
+    torch_redstone_off: 'redtorch',
+    torch_redstone_on: 'redtorch_lit',
 };
 
 fs.readdir(root, function(err, files) {
