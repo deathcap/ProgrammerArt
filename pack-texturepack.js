@@ -32,6 +32,13 @@ var image2tp = {
     ore_emerald: 'oreEmerald',
     ore_diamond: 'oreDiamond',
 
+    block_gold: 'blockGold',
+    block_diamond: 'blockDiamond',
+    block_emerald: 'blockEmerald',
+    block_iron: 'blockIron',
+    block_redstone: 'blockRedstone',
+    block_lapis_lazuli: 'blockLapis',
+
     glass: 'glass',
     glass_thin_top: 'thinglass_top',
 
