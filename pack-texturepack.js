@@ -59,6 +59,7 @@ var image2tp = {
     rail_powered_off: 'goldenRail',
     rail_powered_on: 'goldenRail_powered',
 
+    cobweb: 'web',
 };
 
 fs.readdir(root, function(err, files) {
