@@ -8,6 +8,9 @@ var image2tp = {
     plank_oak: 'wood',
     log_oak_side: 'tree_side',
     log_oak_top: 'tree_top',
+    log_spruce_side: 'tree_spruce',
+    log_birch_side: 'tree_birch',
+    log_jungle_side: 'tree_jungle',
     brick_red: 'brick',
     dirt: 'dirt',
     grass_dirt_side: 'grass_side',
@@ -23,6 +26,9 @@ var image2tp = {
     stone_white: 'whiteStone',
     brick_stone_smooth: 'stonebricksmooth',
     gravel: 'gravel',
+    sand: 'sand',
+    stone_sandstone_top: 'sandstone_top',
+    stone_sandstone_side: 'sandstone_side',
 
     ore_gold: 'oreGold',
     ore_coal: 'oreCoal',
@@ -76,7 +82,6 @@ var image2tp = {
     torch_redstone_on: 'redtorch_lit',
 
     sponge: 'sponge',
-    sand: 'sand',
     vine: 'vine',
 };
 
