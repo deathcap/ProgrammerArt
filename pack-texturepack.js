@@ -78,6 +78,10 @@ var image2tp = {
     redstone_dust_cross: 'redstoneDust_cross',
 
     cobweb: 'web',
+    plant_dandelion: 'flower',
+    plant_rose: 'rose',
+    plant_dead: 'deadbush',
+    plant_fern: 'fern',
 
     torch: 'torch',
     torch_redstone_off: 'redtorch',
