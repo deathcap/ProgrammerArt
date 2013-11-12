@@ -84,6 +84,13 @@ var image2tp = {
 
     sponge: 'sponge',
     vine: 'vine',
+
+    furnace_front_off: 'furnace_front',
+    furnace_front_on: 'furnace_front_lit',
+    furnace_side: 'furnace_side',
+    furnace_top: 'furnace_top',
+    dispenser_front: 'dispenser_front',
+    dropper_front: 'dropper_front',
 };
 
 fs.readdir(root, function(err, files) {
