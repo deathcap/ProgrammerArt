@@ -95,7 +95,9 @@ var image2tp = {
     furnace_side: 'furnace_side',
     furnace_top: 'furnace_top',
     dispenser_front: 'dispenser_front',
+    dispenser_vertical_front: 'dispenser_front_vertical',
     dropper_front: 'dropper_front',
+    dropper_vertical_front: 'dropper_front_vertical',
 
     crafting_table_side: 'workbench_side',
     crafting_table_top: 'workbench_top',
