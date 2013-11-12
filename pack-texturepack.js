@@ -85,6 +85,7 @@ var image2tp = {
     plant_rose: 'rose',
     plant_dead: 'deadbush',
     plant_fern: 'fern',
+    lilypad: 'waterlily',
 
     torch: 'torch',
     torch_redstone_off: 'redtorch',
