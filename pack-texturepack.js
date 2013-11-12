@@ -94,6 +94,8 @@ var image2tp = {
     redstone_dust_cross: 'redstoneDust_cross',
     comparator_off: 'comparator',
     comparator_on: 'comparator_lit',
+    daylight_detector_top: 'daylightDetector_top',
+    daylight_detector_side: 'daylightDetector_side',
 
     sponge: 'sponge',
     vine: 'vine',
