@@ -77,8 +77,6 @@ var image2tp = {
     rail_activator_on: 'activatorRail_powered',
     rail_powered_off: 'goldenRail',
     rail_powered_on: 'goldenRail_powered',
-    redstone_dust_line: 'redstoneDust_line',
-    redstone_dust_cross: 'redstoneDust_cross',
 
     cobweb: 'web',
     plant_dandelion: 'flower',
@@ -92,6 +90,10 @@ var image2tp = {
     torch: 'torch',
     torch_redstone_off: 'redtorch',
     torch_redstone_on: 'redtorch_lit',
+    redstone_dust_line: 'redstoneDust_line',
+    redstone_dust_cross: 'redstoneDust_cross',
+    comparator_off: 'comparator',
+    comparator_on: 'comparator_lit',
 
     sponge: 'sponge',
     vine: 'vine',
