@@ -91,6 +91,10 @@ var image2tp = {
     furnace_top: 'furnace_top',
     dispenser_front: 'dispenser_front',
     dropper_front: 'dropper_front',
+
+    crafting_table_side: 'workbench_side',
+    crafting_table_top: 'workbench_top',
+    crafting_table_front: 'workbench_front', 
 };
 
 fs.readdir(root, function(err, files) {
