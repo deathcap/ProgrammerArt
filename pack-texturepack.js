@@ -33,6 +33,7 @@ var image2tp = {
     stone_sandstone_top: 'sandstone_top',
     stone_sandstone_side: 'sandstone_side',
     clay: 'clay',
+    snow: 'snow',
 
     ore_gold: 'oreGold',
     ore_coal: 'oreCoal',
