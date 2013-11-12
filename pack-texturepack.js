@@ -97,6 +97,7 @@ var image2tp = {
     crafting_table_front: 'workbench_front',
     command_block: 'commandBlock',
     bookshelf: 'bookshelf',
+    note_block: 'musicBlock',
 };
 
 fs.readdir(root, function(err, files) {
