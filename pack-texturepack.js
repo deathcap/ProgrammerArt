@@ -21,6 +21,7 @@ var image2tp = {
     leaves_oak_opaque: 'leaves_opaque',
     obsidian: 'obsidian',
     stone_cobble: 'stonebrick', // cobblestone
+    stone_cobble_mossy: 'stoneMoss',
     stone_smooth: 'stone',
     stone_bedrock: 'bedrock',
     stone_white: 'whiteStone',
