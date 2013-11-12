@@ -87,6 +87,8 @@ var image2tp = {
     plant_fern: 'fern',
     lilypad: 'waterlily',
 
+    monster_spawner: 'mobSpawner',
+
     torch: 'torch',
     torch_redstone_off: 'redtorch',
     torch_redstone_on: 'redtorch_lit',
