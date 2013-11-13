@@ -26,6 +26,8 @@ var image2tp = {
     grass_tall: 'tallgrass',
     leaves_oak: 'leaves',
     leaves_oak_opaque: 'leaves_opaque',
+    leaves_spruce: 'leaves_spruce',
+    leaves_spruce_opaque: 'leaves_spruce_opaque',
     obsidian: 'obsidian',
     stone_cobble: 'stonebrick', // cobblestone
     stone_cobble_mossy: 'stoneMoss',
