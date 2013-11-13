@@ -97,6 +97,9 @@ var image2tp = {
     carrots_1: 'carrots_1',
     carrots_2: 'carrots_2',
     carrots_3: 'carrots_3',
+    cactus_side: 'cactus_side',
+    cactus_bottom: 'cactus_bottom',
+    cactus_top: 'cactus_top',
 
     monster_spawner: 'mobSpawner',
 
