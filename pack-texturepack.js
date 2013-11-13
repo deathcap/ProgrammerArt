@@ -93,6 +93,10 @@ var image2tp = {
     crops_5: 'crops_5',
     crops_6: 'crops_6',
     crops_7: 'crops_7',
+    carrots_0: 'carrots_0',
+    carrots_1: 'carrots_1',
+    carrots_2: 'carrots_2',
+    carrots_3: 'carrots_3',
 
     monster_spawner: 'mobSpawner',
 
