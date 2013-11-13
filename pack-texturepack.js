@@ -28,6 +28,8 @@ var image2tp = {
     leaves_oak_opaque: 'leaves_opaque',
     leaves_spruce: 'leaves_spruce',
     leaves_spruce_opaque: 'leaves_spruce_opaque',
+    leaves_jungle: 'leaves_jungle',
+    leaves_jungle_opaque: 'leaves_jungle_opaque',
     obsidian: 'obsidian',
     stone_cobble: 'stonebrick', // cobblestone
     stone_cobble_mossy: 'stoneMoss',
