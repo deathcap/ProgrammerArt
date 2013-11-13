@@ -85,6 +85,15 @@ var image2tp = {
     plant_fern: 'fern',
     lilypad: 'waterlily',
 
+    crops_0: 'crops_0',
+    crops_1: 'crops_1',
+    crops_2: 'crops_2',
+    crops_3: 'crops_3',
+    crops_4: 'crops_4',
+    crops_5: 'crops_5',
+    crops_6: 'crops_6',
+    crops_7: 'crops_7',
+
     monster_spawner: 'mobSpawner',
 
     torch: 'torch',
