@@ -11,6 +11,8 @@ var image2tp = {
     log_spruce_side: 'tree_spruce',
     log_birch_side: 'tree_birch',
     log_jungle_side: 'tree_jungle',
+    door_wood_lower: 'doorWood_lower',
+    door_wood_upper: 'doorWood_upper',
     brick_red: 'brick',
     dirt: 'dirt',
     farmland_wet: 'farmland_wet',
