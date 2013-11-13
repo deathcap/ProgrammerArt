@@ -151,6 +151,7 @@ var image2tp = {
     command_block: 'commandBlock',
     bookshelf: 'bookshelf',
     note_block: 'musicBlock',
+    jukebox: 'jukebox_top',
 };
 
 fs.readdir(root, function(err, files) {
