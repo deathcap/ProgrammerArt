@@ -15,6 +15,7 @@ var image2tp = {
     door_wood_upper: 'doorWood_upper',
     door_iron_lower: 'doorIron_lower',
     door_iron_upper: 'doorIron_upper',
+    ladder: 'ladder',
     brick_red: 'brick',
     dirt: 'dirt',
     farmland_wet: 'farmland_wet',
