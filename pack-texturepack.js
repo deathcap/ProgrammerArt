@@ -101,6 +101,17 @@ var image2tp = {
     cactus_bottom: 'cactus_bottom',
     cactus_top: 'cactus_top',
 
+    destroy_0: 'destroy_0',
+    destroy_1: 'destroy_1',
+    destroy_2: 'destroy_2',
+    destroy_3: 'destroy_3',
+    destroy_4: 'destroy_4',
+    destroy_5: 'destroy_5',
+    destroy_6: 'destroy_6',
+    destroy_7: 'destroy_7',
+    destroy_8: 'destroy_8',
+    destroy_9: 'destroy_9',
+
     monster_spawner: 'mobSpawner',
 
     torch: 'torch',
