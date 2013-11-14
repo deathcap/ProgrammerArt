@@ -85,6 +85,7 @@ var image2tp = {
     bed_head_end: 'bed_head_end',
     bed_feet_end: 'bed_feet_end',
 
+    beacon: 'beacon',
 
     rail_straight: 'rail',
     rail_turn: 'rail_turn',
