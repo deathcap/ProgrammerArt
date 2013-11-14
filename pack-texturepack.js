@@ -78,6 +78,8 @@ var image2tp = {
     wool_green: 'cloth_13',
     wool_red: 'cloth_14',
     wool_black: 'cloth_15',
+    bed_head_top: 'bed_head_top',
+    bed_feet_top: 'bed_feet_top',
 
     rail_straight: 'rail',
     rail_turn: 'rail_turn',
