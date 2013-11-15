@@ -117,6 +117,10 @@ var image2tp = {
     cactus_side: 'cactus_side',
     cactus_bottom: 'cactus_bottom',
     cactus_top: 'cactus_top',
+    cake_top: 'cake_top',
+    cake_bottom: 'cake_bottom',
+    cake_side: 'cake_side',
+    cake_inner: 'cake_inner',
 
     destroy_0: 'destroy_0',
     destroy_1: 'destroy_1',
