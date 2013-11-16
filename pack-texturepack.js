@@ -59,6 +59,8 @@ var image2tp = {
     block_redstone: 'blockRedstone',
     block_lapis_lazuli: 'blockLapis',
 
+    bars_iron: 'fenceIron',
+
     glass: 'glass',
     glass_thin_top: 'thinglass_top',
 
