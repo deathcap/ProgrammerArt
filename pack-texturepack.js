@@ -167,6 +167,7 @@ var image2tp = {
     comparator_on: 'comparator_lit',
     daylight_detector_top: 'daylightDetector_top',
     daylight_detector_side: 'daylightDetector_side',
+    lever: 'lever',
 
     sponge: 'sponge',
     vine: 'vine',
