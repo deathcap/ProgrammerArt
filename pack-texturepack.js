@@ -84,6 +84,10 @@ var image2tp = {
     bed_feet_side: 'bed_feet_side',
     bed_head_end: 'bed_head_end',
     bed_feet_end: 'bed_feet_end',
+    anvil_base: 'anvil_base',
+    anvil_top: 'anvil_top',
+    anvil_top_damaged_1: 'anvil_top_damaged_1',
+    anvil_top_damaged_2: 'anvil_top_damaged_2',
 
     beacon: 'beacon',
 
