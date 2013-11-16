@@ -138,6 +138,9 @@ var image2tp = {
     enchantment_bottom: 'enchantment_bottom',
     enchantment_side: 'enchantment_side',
     enchantment_top: 'enchantment_top',
+    endframe_eye: 'endframe_eye',
+    endframe_side: 'endframe_side',
+    endframe_top: 'endframe_top',
 
     destroy_0: 'destroy_0',
     destroy_1: 'destroy_1',
