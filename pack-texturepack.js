@@ -134,6 +134,7 @@ var image2tp = {
     cocoa_0: 'cocoa_0',
     cocoa_1: 'cocoa_1',
     cocoa_2: 'cocoa_2',
+    dragon_egg: 'dragonEgg',
 
     destroy_0: 'destroy_0',
     destroy_1: 'destroy_1',
