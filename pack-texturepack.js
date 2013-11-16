@@ -112,6 +112,7 @@ var image2tp = {
     plant_rose: 'rose',
     plant_dead: 'deadbush',
     plant_fern: 'fern',
+    flower_pot: 'flowerPot',
     lilypad: 'waterlily',
 
     crops_0: 'crops_0',
