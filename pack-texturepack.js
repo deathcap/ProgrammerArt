@@ -131,6 +131,9 @@ var image2tp = {
     cake_bottom: 'cake_bottom',
     cake_side: 'cake_side',
     cake_inner: 'cake_inner',
+    cocoa_0: 'cocoa_0',
+    cocoa_1: 'cocoa_1',
+    cocoa_2: 'cocoa_2',
 
     destroy_0: 'destroy_0',
     destroy_1: 'destroy_1',
