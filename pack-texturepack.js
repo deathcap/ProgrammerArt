@@ -6,6 +6,9 @@ var out = 'ProgrammerArt-TexturePack.zip';
 // translate our image names to texture pack images names
 var image2tp = {
     plank_oak: 'wood',
+    plank_birch: 'wood_birch',
+    plank_spruce: 'wood_spruce',
+    plank_jungle: 'wood_jungle',
     log_oak_side: 'tree_side',
     log_oak_top: 'tree_top',
     log_spruce_side: 'tree_spruce',
