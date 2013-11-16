@@ -90,6 +90,10 @@ var image2tp = {
     anvil_top_damaged_2: 'anvil_top_damaged_2',
     brewing_stand: 'brewingStand',
     brewing_stand_base: 'brewingStand_base',
+    cauldron_bottom: 'cauldron_bottom',
+    cauldron_inner: 'cauldron_inner',
+    cauldron_side: 'cauldron_side',
+    cauldron_top: 'cauldron_top',
 
     beacon: 'beacon',
 
