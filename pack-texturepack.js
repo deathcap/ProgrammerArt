@@ -191,6 +191,8 @@ var image2tp = {
     bookshelf: 'bookshelf',
     note_block: 'musicBlock',
     jukebox: 'jukebox_top',
+
+    netherrack: 'hellrock',
 };
 
 fs.readdir(root, function(err, files) {
