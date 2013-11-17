@@ -194,7 +194,7 @@ var image2tp = {
 
     netherrack: 'hellrock',
     ore_nether_quartz: 'netherquartz',
-    //soulsand: 'hellsand',
+    soulsand: 'hellsand',
     //glowstone: 'lightgem',
 };
 
