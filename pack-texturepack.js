@@ -193,6 +193,9 @@ var image2tp = {
     jukebox: 'jukebox_top',
 
     netherrack: 'hellrock',
+    ore_nether_quartz: 'netherquartz',
+    //soulsand: 'hellsand',
+    //glowstone: 'lightgem',
 };
 
 fs.readdir(root, function(err, files) {
