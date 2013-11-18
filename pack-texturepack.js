@@ -177,6 +177,9 @@ var image2tp = {
     lever: 'lever',
     trip_wire: 'tripWire',
     trip_wire_source: 'tripWireSource',
+    tnt_bottom: 'tnt_bottom',
+    tnt_top: 'tnt_top',
+    tnt_side: 'tnt_side',
 
     sponge: 'sponge',
     vine: 'vine',
