@@ -143,6 +143,10 @@ var image2tp = {
     cocoa_2: 'cocoa_2',
     melon_side: 'melon_side',
     melon_top: 'melon_top',
+    mushroom_skin_stem: 'mushroom_skin_stem',
+    mushroom_skin_red: 'mushroom_skin_red',
+    mushroom_skin_brown: 'mushroom_skin_brown',
+    mushroom_inside: 'mushroom_inside',
 
     dragon_egg: 'dragonEgg',
     enchantment_bottom: 'enchantment_bottom',
