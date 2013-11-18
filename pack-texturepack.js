@@ -140,6 +140,9 @@ var image2tp = {
     cocoa_0: 'cocoa_0',
     cocoa_1: 'cocoa_1',
     cocoa_2: 'cocoa_2',
+    melon_side: 'melon_side',
+    melon_top: 'melon_top',
+
     dragon_egg: 'dragonEgg',
     enchantment_bottom: 'enchantment_bottom',
     enchantment_side: 'enchantment_side',
