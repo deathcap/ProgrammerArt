@@ -195,7 +195,7 @@ var image2tp = {
     netherrack: 'hellrock',
     ore_nether_quartz: 'netherquartz',
     soulsand: 'hellsand',
-    //glowstone: 'lightgem',
+    glowstone: 'lightgem',
 };
 
 fs.readdir(root, function(err, files) {
