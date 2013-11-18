@@ -174,6 +174,7 @@ var image2tp = {
     daylight_detector_top: 'daylightDetector_top',
     daylight_detector_side: 'daylightDetector_side',
     lever: 'lever',
+    trip_wire: 'tripWire',
 
     sponge: 'sponge',
     vine: 'vine',
