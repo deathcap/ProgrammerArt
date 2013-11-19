@@ -28,6 +28,8 @@ var image2tp = {
     grass_side_overlay: 'grass_side_overlay',
     grass_top: 'grass_top',
     grass_tall: 'tallgrass',
+    mycelium_top: 'mycel_top',
+    mycelium_dirt_side: 'mycel_side',
     leaves_oak: 'leaves',
     leaves_oak_opaque: 'leaves_opaque',
     leaves_spruce: 'leaves_spruce',
