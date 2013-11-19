@@ -184,6 +184,9 @@ var image2tp = {
     tnt_bottom: 'tnt_bottom',
     tnt_top: 'tnt_top',
     tnt_side: 'tnt_side',
+    hopper: 'hopper',
+    hopper_inside: 'hopper_inside',
+    hopper_top: 'hopper_top',
 
     sponge: 'sponge',
     vine: 'vine',
