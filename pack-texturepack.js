@@ -122,6 +122,10 @@ var image2tp = {
     plant_fern: 'fern',
     flower_pot: 'flowerPot',
     lilypad: 'waterlily',
+    sapling_oak: 'sapling',
+    sapling_spruce: 'sapling_spruce',
+    sapling_birch: 'sapling_birch',
+    sapling_jungle: 'sapling_jungle',
 
     crops_0: 'crops_0',
     crops_1: 'crops_1',
