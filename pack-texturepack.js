@@ -103,6 +103,7 @@ var image2tp = {
     cauldron_inner: 'cauldron_inner',
     cauldron_side: 'cauldron_side',
     cauldron_top: 'cauldron_top',
+    itemframe_back: 'itemframe_back',
 
     beacon: 'beacon',
 
