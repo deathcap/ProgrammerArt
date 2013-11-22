@@ -24,6 +24,7 @@ var image2tp = {
     farmland_wet: 'farmland_wet',
     farmland_dry: 'farmland_dry',
     grass_dirt_side: 'grass_side',
+    grass_snow_side: 'snow_side',
     grass_side_overlay: 'grass_side_overlay',
     grass_top: 'grass_top',
     grass_tall: 'tallgrass',
