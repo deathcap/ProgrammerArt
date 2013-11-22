@@ -66,6 +66,13 @@ var image2tp = {
     block_iron: 'blockIron',
     block_redstone: 'blockRedstone',
     block_lapis_lazuli: 'blockLapis',
+    block_quartz_side: 'quartzblock_side',
+    block_quartz_top: 'quartzblock_top',
+    block_quartz_bottom: 'quartzblock_bottom',
+    block_quartz_pillar_side: 'quartzblock_lines',
+    block_quartz_pillar_top: 'quartzblock_lines_top',
+    block_quartz_chiseled_side: 'quartzblock_chiseled',
+    block_quartz_chiseled_top: 'quartzblock_chiseled_top',
 
     bars_iron: 'fenceIron',
 
