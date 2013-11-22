@@ -49,6 +49,9 @@ var image2tp = {
     sand: 'sand',
     stone_sandstone_top: 'sandstone_top',
     stone_sandstone_side: 'sandstone_side',
+    stone_sandstone_smooth: 'sandstone_smooth',
+    stone_sandstone_carved: 'sandstone_carved',
+    stone_sandstone_bottom: 'sandstone_bottom',
     clay: 'clay',
     snow: 'snow',
 
