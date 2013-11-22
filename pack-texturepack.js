@@ -187,6 +187,8 @@ var image2tp = {
     torch_redstone_on: 'redtorch_lit',
     redstone_dust_line: 'redstoneDust_line',
     redstone_dust_cross: 'redstoneDust_cross',
+    redstone_lamp_off: 'redstoneLight',
+    redstone_lamp_on: 'redstoneLight_lit',
     comparator_off: 'comparator',
     comparator_on: 'comparator_lit',
     daylight_detector_top: 'daylightDetector_top',
