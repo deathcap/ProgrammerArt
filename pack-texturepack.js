@@ -157,6 +157,9 @@ var image2tp = {
     mushroom_inside: 'mushroom_inside',
     mushroom_brown: 'mushroom_brown',
     mushroom_red: 'mushroom_red',
+    netherwart_stage_0: 'netherStalk_0',
+    netherwart_stage_1: 'netherStalk_1',
+    netherwart_stage_2: 'netherStalk_2',
 
     dragon_egg: 'dragonEgg',
     enchantment_bottom: 'enchantment_bottom',
