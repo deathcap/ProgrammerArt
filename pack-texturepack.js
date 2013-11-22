@@ -155,6 +155,8 @@ var image2tp = {
     mushroom_skin_red: 'mushroom_skin_red',
     mushroom_skin_brown: 'mushroom_skin_brown',
     mushroom_inside: 'mushroom_inside',
+    mushroom_brown: 'mushroom_brown',
+    mushroom_red: 'mushroom_red',
 
     dragon_egg: 'dragonEgg',
     enchantment_bottom: 'enchantment_bottom',
