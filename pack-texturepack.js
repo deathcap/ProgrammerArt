@@ -172,6 +172,8 @@ var image2tp = {
     netherwart_stage_1: 'netherStalk_1',
     netherwart_stage_2: 'netherStalk_2',
     sugarcane: 'reeds',
+    stem_straight: 'stem_straight',
+    stem_bent: 'stem_bent',
 
     dragon_egg: 'dragonEgg',
     enchantment_bottom: 'enchantment_bottom',
