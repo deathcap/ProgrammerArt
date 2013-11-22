@@ -160,6 +160,7 @@ var image2tp = {
     netherwart_stage_0: 'netherStalk_0',
     netherwart_stage_1: 'netherStalk_1',
     netherwart_stage_2: 'netherStalk_2',
+    sugarcane: 'reeds',
 
     dragon_egg: 'dragonEgg',
     enchantment_bottom: 'enchantment_bottom',
