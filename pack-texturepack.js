@@ -211,6 +211,8 @@ var image2tp = {
     lava: 'lava',
     lava_flow: 'lava_flow',
     portal: 'portal',
+    fire_0: 'fire_0',
+    fire_1: 'fire_1',
 
     monster_spawner: 'mobSpawner',
 
