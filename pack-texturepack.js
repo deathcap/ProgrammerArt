@@ -2,7 +2,8 @@ var fs = require('fs');
 var AdmZip = require('adm-zip');
 
 var root = 'textures/blocks/';
-var out = 'ProgrammerArt-TexturePack.zip';
+var outTP = 'ProgrammerArt-TexturePack.zip';
+var outRP = 'ProgrammerArt-ResourcePack.zip';
 // translate our image names to texture pack images names
 var image2tp = {
     planks_oak: 'wood',
@@ -275,30 +276,32 @@ var image2tp = {
 fs.readdir(root, function(err, files) {
     console.log("files = " + files);
     
-    var zip = new AdmZip();
+    var zipTP = new AdmZip();
+    var zipRP = new AdmZip();
 
-    zip.addFile('textures/', new Buffer(0));
-    zip.addFile('textures/blocks/', new Buffer(0));
+    zipRP.addFile('pack.mcmeta', fs.readFileSync('pack.mcmeta'));
 
     for (var i = 0; i < files.length; ++i) {
         var file = files[i];
-        var key = file.replace('.png', ''); // TODO: split extension
-        var name = image2tp[key];
-        if (name === undefined) {
-            console.log('FAILED to add ' + file + ' - no name for ' + key);
+        var nameRP = file.replace('.png', ''); // TODO: split extension
+        var nameTP = image2tp[nameRP];
+        if (nameTP === undefined) {
+            // not part of texture packs
             continue;
         }
 
-        var path = 'textures/blocks/' + name + '.png';
-
-        console.log('Adding ' + file + ' as ' + path);
+        var pathTP = 'textures/blocks/' + nameTP + '.png';
+        var pathRP = 'assets/minecraft/textures/blocks/' + nameRP + '.png';
 
         buffer = fs.readFileSync(root + '/' + file);
-        zip.addFile(path, buffer);
+        zipTP.addFile(pathTP, buffer);
+        zipRP.addFile(pathRP, buffer);
     }
 
-    zip.writeZip(out);
+    zipTP.writeZip(outTP);
+    zipRP.writeZip(outRP);
 
-    console.log("Wrote " + out);
+    console.log("Wrote " + outTP);
+    console.log("Wrote " + outRP);
 });
 
