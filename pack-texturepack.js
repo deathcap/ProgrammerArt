@@ -220,6 +220,11 @@ var image2tp = {
     hopper: 'hopper',
     hopper_inside: 'hopper_inside',
     hopper_top: 'hopper_top',
+    piston_bottom: 'piston_bottom',
+    piston_inner_top: 'piston_inner_top',
+    piston_side: 'piston_side',
+    piston_top_sticky: 'piston_top_sticky',
+    piston_top: 'piston_top',
 
     sponge: 'sponge',
     vine: 'vine',
