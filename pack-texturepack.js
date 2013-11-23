@@ -201,6 +201,7 @@ var image2tp = {
     destroy_8: 'destroy_8',
     destroy_9: 'destroy_9',
 
+    ice: 'ice',
     water: 'water',
     water_flow: 'water_flow',
     lava: 'lava',
