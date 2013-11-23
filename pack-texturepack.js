@@ -201,6 +201,11 @@ var image2tp = {
     destroy_8: 'destroy_8',
     destroy_9: 'destroy_9',
 
+    water: 'water',
+    water_flow: 'water_flow',
+    lava: 'lava',
+    lava_flow: 'lava_flow',
+
     monster_spawner: 'mobSpawner',
 
     torch: 'torch',
