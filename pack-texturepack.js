@@ -41,6 +41,8 @@ var image2tp = {
     cobblestone: 'stonebrick',
     cobblestone_mossy: 'stoneMoss',
     stone: 'stone',
+    stone_slab_side: 'stoneslab_side',
+    stone_slab_top: 'stoneslab_top',
     bedrock: 'bedrock',
     end_stone: 'whiteStone',
     stonebrick: 'stonebricksmooth',
