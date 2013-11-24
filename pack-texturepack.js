@@ -1,6 +1,7 @@
 var fs = require('fs');
 var AdmZip = require('adm-zip');
 
+var version = '1.0';
 var root = 'textures/blocks/';
 var outTP = 'ProgrammerArt-TexturePack.zip';
 var outRP = 'ProgrammerArt-ResourcePack.zip';
@@ -633,8 +634,8 @@ fs.readdir(root, function(err, files) {
     var zipTP = new AdmZip();
     var zipRP = new AdmZip();
 
-    zipRP.addFile('pack.mcmeta', fs.readFileSync('pack.mcmeta'));
-    zipTP.addFile('pack.txt', fs.readFileSync('pack.txt'));
+    zipRP.addFile('pack.mcmeta', fs.readFileSync('pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
+    zipTP.addFile('pack.txt', fs.readFileSync('pack.txt', 'utf8').replace('SNAPSHOT', version));
 
     for (var i = 0; i < files.length; ++i) {
         var file = files[i];
