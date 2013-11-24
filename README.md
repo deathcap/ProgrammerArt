@@ -10,15 +10,12 @@ Original textures designed for voxel games, freely released for any use.
 ### Releases
 
 While the textures can be used standalone or for other purposes, a Node.js script is included to
-create a [Minecraft](https://minecraft.net/) resource pack and/or texture pack. See [releases](https://github.com/deathcap/ProgrammerArt/releases),
-also available on Curse:
+bundle up a [Minecraft](https://minecraft.net/) resource pack and/or texture pack archive. See the 
+tagged [releases](https://github.com/deathcap/ProgrammerArt/releases)
+for all generated packs.
 
-* [1.0 for Minecraft 1.5.2](http://www.curse.com/texture-packs/minecraft/programmer-art-1-0#for-mc-1-5-2)
-* [1.0 for Minecraft 1.7.2](http://www.curse.com/texture-packs/minecraft/programmer-art-1-0-for-mc-1-7-2)
+ProgrammerArt also has a [thread on Minecraft Forums](http://www.minecraftforum.net/topic/2145418-).
 
-### ChangeLog
-
-v1.0 2013/11/23 Initial release
 
 ### License
 
