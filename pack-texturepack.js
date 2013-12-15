@@ -626,17 +626,35 @@ var rpAdded = {
     wool_colored_silver: false,
     wool_colored_white: false,
     wool_colored_yellow: false,
-}
+};
 
-fs.readdir(root, function(err, files) {
+var zipTP = new AdmZip();
+var zipRP = new AdmZip();
+
+zipRP.addFile('pack.mcmeta', fs.readFileSync('pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
+zipTP.addFile('pack.txt', fs.readFileSync('pack.txt', 'utf8').replace('SNAPSHOT', version));
+
+var files = fs.readdirSync(root);
+process(files);
+
+zipTP.writeZip(outTP);
+zipRP.writeZip(outRP);
+
+console.log("Wrote " + outTP);
+console.log("Wrote " + outRP);
+
+var total = 0, missing = 0;
+for (var x in rpAdded) {
+    ++total;
+    if (rpAdded[x]) continue;
+    console.log("Missing "+x);
+    ++missing;
+}
+console.log((total - missing) + " / " + total + " = " + (total - missing) / total);
+
+function process(files) {
     console.log("files = " + files);
     
-    var zipTP = new AdmZip();
-    var zipRP = new AdmZip();
-
-    zipRP.addFile('pack.mcmeta', fs.readFileSync('pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
-    zipTP.addFile('pack.txt', fs.readFileSync('pack.txt', 'utf8').replace('SNAPSHOT', version));
-
     for (var i = 0; i < files.length; ++i) {
         var file = files[i];
         var buffer = fs.readFileSync(root + '/' + file);
@@ -660,20 +678,6 @@ fs.readdir(root, function(err, files) {
             console.log("Unknown file: " + file);
         }
     }
+}
 
-    zipTP.writeZip(outTP);
-    zipRP.writeZip(outRP);
-
-    console.log("Wrote " + outTP);
-    console.log("Wrote " + outRP);
-
-    var total = 0, missing = 0;
-    for (var x in rpAdded) {
-        ++total;
-        if (rpAdded[x]) continue;
-        console.log("Missing "+x);
-        ++missing;
-    }
-    console.log((total - missing) + " / " + total + " = " + (total - missing) / total);
-});
 
