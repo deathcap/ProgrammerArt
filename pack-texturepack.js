@@ -1,7 +1,7 @@
 var fs = require('fs');
 var AdmZip = require('adm-zip');
 
-var version = '1.0';
+var version = '1.1-dev';
 var root = 'textures/blocks/';
 var outTP = 'ProgrammerArt-TexturePack.zip';
 var outRP = 'ProgrammerArt-ResourcePack.zip';
