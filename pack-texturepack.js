@@ -276,7 +276,7 @@ var image2tp = {
     glowstone: 'lightgem',
 };
 
-rpAdded = {
+var rpAdded = {
     anvil_base: false,
     anvil_top_damaged_0: false,
     anvil_top_damaged_1: false,
