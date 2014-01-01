@@ -1079,6 +1079,7 @@ Object.keys(rpAdded).forEach(function(category) {
     for (var x in rpAdded[category]) {
         ++total;
         if (rpAdded[category][x]) continue;
+        if (x.indexOf("_overlay") !== -1) continue; // skip for now
         console.log("Missing "+x);
         ++missing;
     }
