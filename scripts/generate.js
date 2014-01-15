@@ -1,9 +1,11 @@
 var fs = require('fs');
 var AdmZip = require('adm-zip');
 var pngjs = require('pngjs');
+var path = require('path');
 
 var version = '2.0';
-var root = 'textures/';
+var root = '../';
+var textureRoot = path.join(root, 'textures/');
 var outTP = 'ProgrammerArt-TexturePack.zip';
 var outRP = 'ProgrammerArt-ResourcePack.zip';
 // translate our image names to texture pack images names
@@ -1063,11 +1065,11 @@ var rpAdded = {
 var zipTP = new AdmZip();
 var zipRP = new AdmZip();
 
-zipRP.addFile('pack.mcmeta', fs.readFileSync('pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
-zipTP.addFile('pack.txt', fs.readFileSync('pack.txt', 'utf8').replace('SNAPSHOT', version));
+zipRP.addFile(root + 'pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
+zipTP.addFile(root + 'pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version));
 
-process(root + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
-process(root + 'items/', 'items', 'textures/items/', 'assets/minecraft/textures/items/');
+process(textureRoot + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
+process(textureRoot + 'items/', 'items', 'textures/items/', 'assets/minecraft/textures/items/');
 
 zipTP.writeZip(outTP);
 zipRP.writeZip(outRP);

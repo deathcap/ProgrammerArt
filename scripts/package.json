@@ -1,0 +1,23 @@
+{
+  "name": "programmerart-scripts",
+  "description": "script to package the free voxel-related artwork",
+  "version": "0.0.1",
+  "main": "generate.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:deathcap/ProgrammerArt.git"
+  },
+  "keywords": [
+    "voxel",
+    "textures",
+    "art"
+  ],
+  "scripts": {
+    "start": "node generate.js"
+  },
+  "license": "CC0-1.0",
+  "dependencies": {
+    "pngjs": "~0.4.0",
+    "adm-zip": "~0.4.3"
+  }
+}
