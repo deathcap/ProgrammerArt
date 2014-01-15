@@ -1,6 +1,5 @@
 var fs = require('fs');
 var AdmZip = require('adm-zip');
-var pngjs = require('pngjs');
 var path = require('path');
 
 var version = '2.0';
