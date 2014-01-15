@@ -8,7 +8,7 @@ var files = ['../textures/blocks/stone.png', '../textures/blocks/cobblestone.png
 var tileWidth = 16, tileHeight = 16;
 var tileRows = 3, tileColumns = 1;
 
-var stitched = new PNG({width: tileWidth * tileRows, height: tileHeight * tileColumns});
+var stitched = new PNG({width: tileWidth * tileRows, height: tileHeight * tileColumns, filterType:4});
 
 var x = 0, y = 0;
 
