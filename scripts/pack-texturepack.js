@@ -1,5 +1,6 @@
 var fs = require('fs');
 var AdmZip = require('adm-zip');
+var pngjs = require('pngjs');
 
 var version = '2.0';
 var root = 'textures/';
