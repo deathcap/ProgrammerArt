@@ -12,19 +12,18 @@ var x = 0, y = 0;
 
 files.forEach(function(pathFS) {
   console.log('pathFS='+pathFS);
-  fs.createReadStream(pathFS)
-    .pipe(new PNG({}))
-    .on('parsed', function() {
-      console.log('PARSED '+pathFS+', at '+this.width+'x'+this.height);
+  var png = new PNG();
+  png.parse(fs.readFileSync(pathFS));
 
-      if (this.width !== tileWidth || this.height !== tileHeight)
-        throw new Error('unexpected dimensions on '+pathFS+': '+this.width+'x'+this.height+' !== '+tileWidth+'x'+tileHeight);
+  console.log('PARSED '+pathFS+', at '+png.width+'x'+png.height);
 
-      this.bitblt(stitched, 0, 0, tileWidth, tileHeight, x * tileWidth, y * tileHeight);
+  if (png.width !== tileWidth || png.height !== tileHeight)
+    throw new Error('unexpected dimensions on '+pathFS+': '+png.width+'x'+png.height+' !== '+tileWidth+'x'+tileHeight);
 
-      x += 1;
-      //if (x > ) y += 1;
-    });
+  png.bitblt(stitched, 0, 0, tileWidth, tileHeight, x * tileWidth, y * tileHeight);
+
+  x += 1;
+  //if (x > ) y += 1;
 });
 
 stitched.pack().pipe(fs.createWriteStream('terrain.png'));
