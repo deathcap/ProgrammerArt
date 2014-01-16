@@ -6,9 +6,9 @@ var fs = require('fs');
 var files = ['../textures/blocks/stone.png', '../textures/blocks/cobblestone.png', '../textures/blocks/gravel.png'];
 
 var tileWidth = 16, tileHeight = 16;
-var tileRows = 3, tileColumns = 1;
+var tileColumns = 3, tileRows = 1;
 
-var stitched = new PNG({width: tileWidth * tileRows, height: tileHeight * tileColumns});
+var stitched = new PNG({width: tileWidth * tileColumns, height: tileHeight * tileRows});
 
 var tileX = 0, tileY  = 0;
 
