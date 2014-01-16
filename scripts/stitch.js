@@ -17,25 +17,25 @@ var completed = 0;
 files.forEach(function(pathFS) {
   console.log('pathFS='+pathFS);
   var png = new PNG();
-  png.parse(fs.readFileSync(pathFS), function(err, data) {
+  png.parse(fs.readFileSync(pathFS));
+  png.on('parsed', function() {
+    console.log('PARSED '+pathFS+', at '+this.width+'x'+this.height);
 
-    console.log('PARSED '+pathFS+', at '+png.width+'x'+png.height);
-
-    if (png.width !== tileWidth || png.height !== tileHeight)
-      throw new Error('unexpected dimensions on '+pathFS+': '+png.width+'x'+png.height+' !== '+tileWidth+'x'+tileHeight);
+    if (this.width !== tileWidth || this.height !== tileHeight)
+      throw new Error('unexpected dimensions on '+pathFS+': '+this.width+'x'+this.height+' !== '+tileWidth+'x'+tileHeight);
     
-    png.bitblt(stitched, 0, 0, tileWidth, tileHeight, tileX * tileWidth, tileY * tileHeight);
+    this.bitblt(stitched, 0, 0, tileWidth, tileHeight, tileX * tileWidth, tileY * tileHeight);
 
     /*
-    for (var x = 0; x < png.width; x += 1) {
-      for (var y = 0; y < png.height; y += 1) {
-        var idx = (png.width * y + x) << 2;
+    for (var x = 0; x < this.width; x += 1) {
+      for (var y = 0; y < this.height; y += 1) {
+        var idx = (this.width * y + x) << 2;
 
         var idxS = (stitched.width * y + x) << 2;
 
         for (var c = 0; c < 4; ++c) {
           stitched.data[idxS + c] = tileX * 50; //png[idx + c];
-          //console.log(' data '+x+','+y+','+c+' = '+png.data[idx+c]);
+          //console.log(' data '+x+','+y+','+c+' = '+this.data[idx+c]);
         }
       }
     }
