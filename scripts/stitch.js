@@ -12,6 +12,8 @@ var stitched = new PNG({width: tileWidth * tileRows, height: tileHeight * tileCo
 
 var tileX = 0, tileY  = 0;
 
+var completed = 0;
+
 files.forEach(function(pathFS) {
   console.log('pathFS='+pathFS);
   var png = new PNG();
@@ -21,23 +23,29 @@ files.forEach(function(pathFS) {
 
     if (png.width !== tileWidth || png.height !== tileHeight)
       throw new Error('unexpected dimensions on '+pathFS+': '+png.width+'x'+png.height+' !== '+tileWidth+'x'+tileHeight);
-
+    
     png.bitblt(stitched, 0, 0, tileWidth, tileHeight, tileX * tileWidth, tileY * tileHeight);
 
     /*
-    for (var x = 0; x < png.width; ++x) {
-      for (var y = 0; y < png.height; ++y) {
+    for (var x = 0; x < png.width; x += 1) {
+      for (var y = 0; y < png.height; y += 1) {
         var idx = (png.width * y + x) << 2;
 
         var idxS = (stitched.width * y + x) << 2;
 
         for (var c = 0; c < 4; ++c) {
-          stitched.data[idxS + c] = 100; //png[idx + c];
-          console.log(' data '+x+','+y+','+c+' = '+png.data[idx+c]);
+          stitched.data[idxS + c] = tileX * 50; //png[idx + c];
+          //console.log(' data '+x+','+y+','+c+' = '+png.data[idx+c]);
         }
       }
     }
     */
+
+    completed += 1;
+    if (completed == files.length) {
+      console.log('Writing');
+      stitched.pack().pipe(fs.createWriteStream('terrain.png'));
+    }
   });
 
 
@@ -45,4 +53,3 @@ files.forEach(function(pathFS) {
   //if (x > ) y += 1;
 });
 
-stitched.pack().pipe(fs.createWriteStream('terrain.png'));
