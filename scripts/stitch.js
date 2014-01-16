@@ -6,7 +6,7 @@ var fs = require('fs');
 var files = ['../textures/blocks/stone.png', '../textures/blocks/cobblestone.png', '../textures/blocks/gravel.png'];
 
 var tileWidth = 16, tileHeight = 16;
-var tileRows = 4, tileColumns = 1;
+var tileRows = 3, tileColumns = 1;
 
 var stitched = new PNG({width: tileWidth * tileRows, height: tileHeight * tileColumns});
 
@@ -46,10 +46,10 @@ files.forEach(function(pathFS) {
       console.log('Writing');
       stitched.pack().pipe(fs.createWriteStream('terrain.png'));
     }
+
+    tileX += 1;
   });
 
-
-  tileX += 1;
   //if (x > ) y += 1;
 });
 
