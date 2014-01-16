@@ -3,6 +3,8 @@
 var PNG = require('pngjs').PNG;
 var fs = require('fs');
 
+var tileWidth = 16, tileHeight = 16;
+
 var terrainMatrix = [
   ['grass_top', 'stone', 'dirt', 'grass_side', 'planks_oak', 'stone_slab_side', 'stone_slab_top', 'brick', 
   'tnt_side', 'tnt_top', 'tnt_bottom', 'web', 'flower_rose', 'flower_dandelion', 'portal', 'sapling_oak'],
@@ -53,17 +55,55 @@ var terrainMatrix = [
   'destroy_stage_8', 'destroy_stage_9', null, null, null, null, 'lava_flow', 'lava_flow']
 ];
 
-var matrix = terrainMatrix;
+var itemsMatrix = [
+  ['leather_helmet', 'chainmail_helmet', 'iron_helmet', 'diamond_helmet', 'gold_helmet', 'flint_and_steel', 'flint', 'coal',
+  'string', 'seeds_wheat', 'apple', 'apple_golden', 'egg', 'sugar', 'snowball'],
+  
+  ['leather_chestplate', 'chainmail_chestplate', 'iron_chestplate', 'diamond_chestplate', 'gold_chestplate', 'bow_standby', 'brick', 'iron_ingot',
+  'feather', 'wheat', 'painting', 'reeds', 'bone', 'cake', 'slimeball'],
 
-var tileWidth = 16, tileHeight = 16;
-var tileColumns = matrix[0].length, tileRows = matrix.length;
-var matrixSize = tileColumns * tileRows;
+  ['leather_leggings', 'chainmail_leggings', 'iron_leggings', 'diamond_leggings', 'gold_leggings', 'arrow', 'quiver', 'gold_ingot',
+  'gunpowder', 'bread', 'sign', 'door_wood', 'door_iron', 'bed', 'fireball'],
 
-var stitched = new PNG({width: tileWidth * tileColumns, height: tileHeight * tileRows});
+  ['leather_boots', 'chainmail_boots', 'iron_boots', 'diamond_boots', 'gold_boots', 'stick', 'compass', 'diamond',
+  'redstone_dust', 'clay_ball', 'paper', 'book_normal', 'map_filled', 'seeds_pumpkin', 'seeds_melon'],
 
-var tileX = 0, tileY  = 0;
+  ['wood_sword', 'stone_sword', 'iron_sword', 'diamond_sword', 'gold_sword', 'fishing_rod_cast', 'clock', 'bowl', 
+  'mushroom_stew', 'glowstone_dust', 'bucket_empty', 'bucket_water', 'bucket_lava', 'bucket_milk', 'dye_powder_black', 'dye_powder_gray'],
 
-var completed = 0;
+  ['wood_shovel', 'stone_shovel', 'iron_shovel', 'diamond_shovel', 'gold_shovel', 'fishing_rod_uncast', 'repeater', 'porkchop_raw',
+  'porkchop_cooked', 'fish_cod_raw',  'fish_cod_cooked', 'rotten_flesh', 'cookie', 'shears', 'dye_powder_red', 'dye_powder_pink'],
+
+  ['wood_pickaxe', 'stone_pickaxe', 'iron_pickaxe', 'diamond_pickaxe', 'gold_pickaxe', 'bow_pulling_0', 'carrot_on_a_stick', 'leather',
+  'saddle', 'beef_raw', 'beef_cooked', 'ender_pearl', 'blaze_rod', 'melon', 'dye_powder_green', 'dye_powder_lime'],
+
+  ['wood_axe', 'stone_axe', 'iron_axe', 'diamond_axe', 'gold_axe', 'bow_pulling_1', 'potato_baked', 
+  'carrot', 'chicken_raw', 'chicken_cooked', 'ghast_tear', 'gold_nugget', 'nether_wart', 'dye_powder_brown', 'dye_powder_yellow'],
+
+  ['wood_hoe', 'stone_hoe', 'iron_hoe', 'diamond_hoe', 'gold_hoe', 'bow_pulling_2', 'potato_poisonous', 'minecart_normal',
+  'boat', 'melon_speckled', 'spider_eye_fermented', 'spider_eye', 'potion_bottle_empty', 'potion_overlay', 'dye_powder_blue', 'dye_powder_cyan'],
+
+  ['leather_helmet_overlay', null, null, null, null, null, 'carrot_golden', 'minecart_chest',
+  'pumpkin_pie', 'spawn_egg', 'potion_bottle_splash', 'ender_eye', 'cauldron', 'blaze_powder', 'dye_powder_light_blue', 'dye_powder_magenta'],
+
+  ['leather_chestplate_overlay', null, null, null, null, null, 'minecart_furnace', null, 'spawn_egg_overlay', 
+  'ruby', 'experience_bottle', 'magma_cream', 'dye_powder_cyan', 'dye_powder_orange'],
+  
+  ['leather_leggings_overlay', null, null, null, null, null, null,
+  null, 'nether_star', 'emerald', 'book_writable', 'book_written', 'flower_pot', 'dye_powder_silver', 'dye_powder_white'],
+
+  ['leather_boots_overlay', null, null, null, null, null, null,
+  'fireworks', 'fireworks_charge', 'fireworks_charge_overlay', null, 'map_empty', 'item_frame', 'book_enchanted'],
+
+  [null, null, null, null, null, null, null, null,
+  null, null, null, null, null, null, null, null],
+
+  ['skull_skeleton', 'skull_wither', 'skull_zombie', 'skull_steve', 'skull_creeper', null, null,
+  null, null, null, null, null, null, null, null],
+
+  ['record_13', 'record_cat', 'record_blocks', 'record_chirp', 'record_far', 'record_mall', 'record_mellohi', 'record_stal',
+  'record_strad', 'record_ward', 'record_11', 'record_wait', 'record_wait', 'record_wait', 'record_wait', 'record_wait']
+];
 
 var coverArea = function(h, w, cb) {
   for (var y = 0; y < h; y += 1) {
@@ -73,33 +113,47 @@ var coverArea = function(h, w, cb) {
   }
 };
 
-coverArea(tileRows, tileColumns, function(tileX, tileY) {
-  var name = matrix[tileY][tileX];
+var stitch = function(outFile, pathPrefix, matrix) {
+  var tileColumns = matrix[0].length, tileRows = matrix.length;
+  var matrixSize = tileColumns * tileRows;
+  var stitched = new PNG({width: tileWidth * tileColumns, height: tileHeight * tileRows});
+  var tileX = 0, tileY  = 0;
+  var completed = 0;
 
-  if (!name) {
-    completed += 1; // TODO: write empty instead
-    return;
-  }
+  coverArea(tileRows, tileColumns, function(tileX, tileY) {
+    var name = matrix[tileY][tileX];
 
-  var pathFS = '../textures/blocks/' + name + '.png';
-
-  console.log('pathFS='+pathFS);
-  var png = new PNG();
-  png.parse(fs.readFileSync(pathFS));
-
-  png.on('parsed', function() {
-    console.log('PARSED '+pathFS+', at '+this.width+'x'+this.height);
-
-    if (this.width !== tileWidth || this.height !== tileHeight)
-      throw new Error('unexpected dimensions on '+pathFS+': '+this.width+'x'+this.height+' !== '+tileWidth+'x'+tileHeight);
-   
-    console.log(tileX, tileY);
-    this.bitblt(stitched, 0, 0, tileWidth, tileHeight, tileX * tileWidth, tileY * tileHeight);
-
-    completed += 1;
-    if (completed == matrixSize) {
-      console.log('Writing',completed,' ',matrixSize);
-      stitched.pack().pipe(fs.createWriteStream('terrain.png'));
+    if (!name) {
+      completed += 1; // TODO: write empty instead
+      return;
     }
+
+    var pathFS = pathPrefix + name + '.png';
+
+    var png = new PNG();
+    try {
+      png.parse(fs.readFileSync(pathFS));
+    } catch (e) {
+      console.log('skipping '+pathFS);
+      completed += 1;
+      return;
+    }
+
+    png.on('parsed', function() {
+      if (this.width !== tileWidth || this.height !== tileHeight)
+        throw new Error('unexpected dimensions on '+pathFS+': '+this.width+'x'+this.height+' !== '+tileWidth+'x'+tileHeight);
+     
+      this.bitblt(stitched, 0, 0, tileWidth, tileHeight, tileX * tileWidth, tileY * tileHeight);
+
+      completed += 1;
+      if (completed == matrixSize) {
+        console.log('Writing',outFile);
+        stitched.pack().pipe(fs.createWriteStream(outFile));
+      }
+    });
   });
-});
+};
+
+stitch('terrain.png', '../textures/blocks/', terrainMatrix);
+stitch('items.png', '../textures/items/', itemsMatrix);
+
