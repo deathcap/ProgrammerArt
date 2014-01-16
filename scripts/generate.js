@@ -7,6 +7,7 @@ var root = '../';
 var textureRoot = path.join(root, 'textures/');
 var outTP = 'ProgrammerArt-TexturePack.zip';
 var outRP = 'ProgrammerArt-ResourcePack.zip';
+var outSP = 'ProgrammerArt-StitchPack.zip';
 
 var image2tp = require('./texturepack_data.js');
 var rpAdded = require('./resourcepack_data.js');
@@ -14,8 +15,8 @@ var rpAdded = require('./resourcepack_data.js');
 var zipTP = new AdmZip();
 var zipRP = new AdmZip();
 
-zipRP.addFile(root + 'pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
-zipTP.addFile(root + 'pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version));
+zipRP.addFile('pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
+zipTP.addFile('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version));
 
 process(textureRoot + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
 process(textureRoot + 'items/', 'items', 'textures/items/', 'assets/minecraft/textures/items/');
@@ -71,16 +72,23 @@ function process(thisRoot, category, tpPrefix, rpPrefix) {
 var stitchMatrices = require('./stitchpack_data.js');
 var stitch = require('./stitcher.js');
 
-var stitchData = {tileWidth:tileWidth, tileHeight:tileHeight, coords: {blocks: {}, items: {}}};
+var stitchData = {name:'ProgrammerArt v'+version, tileWidth:tileWidth, tileHeight:tileHeight, coords: {blocks: {}, items: {}}};
 var tileWidth = 16, tileHeight = 16;
-var jsonOut = 'stitchpack.json';
 
-stitch('terrain.png', root + 'textures/blocks/', stitchMatrices.terrain, tileWidth, tileHeight, function(name2Coord) {
+stitch('temp/terrain.png', root + 'textures/blocks/', stitchMatrices.terrain, tileWidth, tileHeight, function(name2Coord) {
   stitchData.coords.blocks = name2Coord;
-});
-stitch('items.png', root + 'textures/items/', stitchMatrices.items, tileWidth, tileHeight, function(name2Coord) {
-  stitchData.coords.items = name2Coord;
-  console.log('Writing',jsonOut);
-  fs.writeFileSync(jsonOut, JSON.stringify(stitchData));
-});
 
+  stitch('temp/items.png', root + 'textures/items/', stitchMatrices.items, tileWidth, tileHeight, function(name2Coord) {
+    stitchData.coords.items = name2Coord;
+    console.log('Writing',outSP);
+
+    console.log(fs.readFileSync('temp/terrain.png').length);
+
+    var zipSP = new AdmZip();
+    zipSP.addFile('terrain.png', fs.readFileSync('temp/terrain.png')); // TODO: avoid temp files
+    zipSP.addFile('gui/items.png', fs.readFileSync('temp/items.png'));
+    zipSP.addFile('stitchpack.json', JSON.stringify(stitchData));
+    zipSP.addFile('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version));
+    zipSP.writeZip(outSP);
+  });
+});

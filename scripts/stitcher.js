@@ -51,8 +51,11 @@ var stitch = function(outFile, pathPrefix, matrix, tileWidth, tileHeight, cb) {
       completed += 1;
       if (completed == matrixSize) {
         console.log('Writing',outFile);
-        stitched.pack().pipe(fs.createWriteStream(outFile));
-        cb(name2Coord);
+        var w = fs.createWriteStream(outFile);
+        stitched.pack().pipe(w);
+        w.on('finish', function() {
+          cb(name2Coord);
+        });
       }
     });
   });
