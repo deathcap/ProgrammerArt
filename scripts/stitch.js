@@ -15,12 +15,14 @@ var coverArea = function(h, w, cb) {
   }
 };
 
-var stitch = function(outFile, pathPrefix, matrix) {
+var stitch = function(outFile, outDataFile, pathPrefix, matrix) {
   var tileColumns = matrix[0].length, tileRows = matrix.length;
   var matrixSize = tileColumns * tileRows;
   var stitched = new PNG({width: tileWidth * tileColumns, height: tileHeight * tileRows});
   var tileX = 0, tileY  = 0;
   var completed = 0;
+
+  var coordData = {names: {}};
 
   coverArea(tileRows, tileColumns, function(tileX, tileY) {
     var name = matrix[tileY][tileX];
@@ -41,6 +43,8 @@ var stitch = function(outFile, pathPrefix, matrix) {
       return;
     }
 
+    coordData.names[name] = [tileX, tileY];
+
     png.on('parsed', function() {
       if (this.width !== tileWidth || this.height !== tileHeight)
         throw new Error('unexpected dimensions on '+pathFS+': '+this.width+'x'+this.height+' !== '+tileWidth+'x'+tileHeight);
@@ -51,11 +55,13 @@ var stitch = function(outFile, pathPrefix, matrix) {
       if (completed == matrixSize) {
         console.log('Writing',outFile);
         stitched.pack().pipe(fs.createWriteStream(outFile));
+
+        fs.writeFileSync(outDataFile, JSON.stringify(coordData));
       }
     });
   });
 };
 
-stitch('terrain.png', '../textures/blocks/', matrices.terrain);
-stitch('items.png', '../textures/items/', matrices.items);
+stitch('terrain.png', 'terrain.png.json', '../textures/blocks/', matrices.terrain);
+stitch('items.png', 'items.png.json', '../textures/items/', matrices.items);
 
