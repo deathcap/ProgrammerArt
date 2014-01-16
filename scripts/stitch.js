@@ -62,7 +62,7 @@ var stitch = function(outFile, pathPrefix, matrix, cb) {
   });
 };
 
-var stitchData = {coords: {blocks: {}, items: {}}};
+var stitchData = {tileWidth:tileWidth, tileHeight:tileHeight, coords: {blocks: {}, items: {}}};
 var jsonOut = 'stitchpack.json';
 
 stitch('terrain.png', '../textures/blocks/', matrices.terrain, function(name2Coord) {
