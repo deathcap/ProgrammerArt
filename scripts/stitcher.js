@@ -3,10 +3,6 @@
 var PNG = require('pngjs').PNG;
 var fs = require('fs');
 
-var tileWidth = 16, tileHeight = 16;
-
-var matrices = require('./stitchpack_data.js');
-
 var coverArea = function(h, w, cb) {
   for (var y = 0; y < h; y += 1) {
     for (var x = 0; x < w; x += 1) {
@@ -15,7 +11,7 @@ var coverArea = function(h, w, cb) {
   }
 };
 
-var stitch = function(outFile, pathPrefix, matrix, cb) {
+var stitch = function(outFile, pathPrefix, matrix, tileWidth, tileHeight, cb) {
   var tileColumns = matrix[0].length, tileRows = matrix.length;
   var matrixSize = tileColumns * tileRows;
   var stitched = new PNG({width: tileWidth * tileColumns, height: tileHeight * tileRows});
@@ -62,15 +58,6 @@ var stitch = function(outFile, pathPrefix, matrix, cb) {
   });
 };
 
-var stitchData = {tileWidth:tileWidth, tileHeight:tileHeight, coords: {blocks: {}, items: {}}};
-var jsonOut = 'stitchpack.json';
+module.exports = stitch;
 
-stitch('terrain.png', '../textures/blocks/', matrices.terrain, function(name2Coord) {
-  stitchData.coords.blocks = name2Coord;
-});
-stitch('items.png', '../textures/items/', matrices.items, function(name2Coord) {
-  stitchData.coords.items = name2Coord;
-  console.log('Writing',jsonOut);
-  fs.writeFileSync(jsonOut, JSON.stringify(stitchData));
-});
 

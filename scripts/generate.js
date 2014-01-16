@@ -68,4 +68,19 @@ function process(thisRoot, category, tpPrefix, rpPrefix) {
     }
 }
 
+var stitchMatrices = require('./stitchpack_data.js');
+var stitch = require('./stitcher.js');
+
+var stitchData = {tileWidth:tileWidth, tileHeight:tileHeight, coords: {blocks: {}, items: {}}};
+var tileWidth = 16, tileHeight = 16;
+var jsonOut = 'stitchpack.json';
+
+stitch('terrain.png', root + 'textures/blocks/', stitchMatrices.terrain, tileWidth, tileHeight, function(name2Coord) {
+  stitchData.coords.blocks = name2Coord;
+});
+stitch('items.png', root + 'textures/items/', stitchMatrices.items, tileWidth, tileHeight, function(name2Coord) {
+  stitchData.coords.items = name2Coord;
+  console.log('Writing',jsonOut);
+  fs.writeFileSync(jsonOut, JSON.stringify(stitchData));
+});
 
