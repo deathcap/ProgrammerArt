@@ -6,7 +6,7 @@ var fs = require('fs');
 var files = ['../textures/blocks/stone.png', '../textures/blocks/cobblestone.png', '../textures/blocks/gravel.png'];
 
 var tileWidth = 16, tileHeight = 16;
-var tileColumns = 3, tileRows = 1;
+var tileColumns = 2, tileRows = 2;
 
 var stitched = new PNG({width: tileWidth * tileColumns, height: tileHeight * tileRows});
 
@@ -26,21 +26,6 @@ files.forEach(function(pathFS) {
     
     this.bitblt(stitched, 0, 0, tileWidth, tileHeight, tileX * tileWidth, tileY * tileHeight);
 
-    /*
-    for (var x = 0; x < this.width; x += 1) {
-      for (var y = 0; y < this.height; y += 1) {
-        var idx = (this.width * y + x) << 2;
-
-        var idxS = (stitched.width * y + x) << 2;
-
-        for (var c = 0; c < 4; ++c) {
-          stitched.data[idxS + c] = tileX * 50; //png[idx + c];
-          //console.log(' data '+x+','+y+','+c+' = '+this.data[idx+c]);
-        }
-      }
-    }
-    */
-
     completed += 1;
     if (completed == files.length) {
       console.log('Writing');
@@ -48,8 +33,10 @@ files.forEach(function(pathFS) {
     }
 
     tileX += 1;
+    if (tileX > tileColumns - 1) {
+      tileX = 0;
+      tileY += 1;
+    }
   });
-
-  //if (x > ) y += 1;
 });
 
