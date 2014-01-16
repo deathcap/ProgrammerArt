@@ -28,10 +28,10 @@ files.forEach(function(pathFS) {
     for (var y = 0; y < png.height; ++y) {
       var idx = (png.width * y + x) << 2;
 
-      var idxS = idx;
+      var idxS = (stitched.width * y + x) << 2;
 
       for (var c = 0; c < 4; ++c) {
-        stitched.data[idxS + c] = png[idx + c];
+        stitched.data[idxS + c] = 100; //png[idx + c];
         console.log(' data '+x+','+y+','+c+' = '+png.data[idx+c]);
       }
     }
