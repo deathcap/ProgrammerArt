@@ -15,14 +15,14 @@ var coverArea = function(h, w, cb) {
   }
 };
 
-var stitch = function(outFile, outDataFile, pathPrefix, matrix) {
+var stitch = function(outFile, pathPrefix, matrix, cb) {
   var tileColumns = matrix[0].length, tileRows = matrix.length;
   var matrixSize = tileColumns * tileRows;
   var stitched = new PNG({width: tileWidth * tileColumns, height: tileHeight * tileRows});
   var tileX = 0, tileY  = 0;
   var completed = 0;
 
-  var coordData = {names: {}};
+  var name2Coord = {};
 
   coverArea(tileRows, tileColumns, function(tileX, tileY) {
     var name = matrix[tileY][tileX];
@@ -43,7 +43,8 @@ var stitch = function(outFile, outDataFile, pathPrefix, matrix) {
       return;
     }
 
-    coordData.names[name] = [tileX, tileY];
+    if (!name2Coord[name]) // don't overwrite
+      name2Coord[name] = [tileX, tileY];
 
     png.on('parsed', function() {
       if (this.width !== tileWidth || this.height !== tileHeight)
@@ -55,13 +56,21 @@ var stitch = function(outFile, outDataFile, pathPrefix, matrix) {
       if (completed == matrixSize) {
         console.log('Writing',outFile);
         stitched.pack().pipe(fs.createWriteStream(outFile));
-
-        fs.writeFileSync(outDataFile, JSON.stringify(coordData));
+        cb(name2Coord);
       }
     });
   });
 };
 
-stitch('terrain.png', 'terrain.png.json', '../textures/blocks/', matrices.terrain);
-stitch('items.png', 'items.png.json', '../textures/items/', matrices.items);
+var stitchData = {coords: {blocks: {}, items: {}}};
+var jsonOut = 'stitchpack.json';
+
+stitch('terrain.png', '../textures/blocks/', matrices.terrain, function(name2Coord) {
+  stitchData.coords.blocks = name2Coord;
+});
+stitch('items.png', '../textures/items/', matrices.items, function(name2Coord) {
+  stitchData.coords.items = name2Coord;
+  console.log('Writing',jsonOut);
+  fs.writeFileSync(jsonOut, JSON.stringify(stitchData));
+});
 
