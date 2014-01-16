@@ -83,10 +83,11 @@ stitch('temp/terrain.png', root + 'textures/blocks/', stitchMatrices.terrain, ti
     console.log('Writing',outSP);
 
     console.log(fs.readFileSync('temp/terrain.png').length);
+    console.log(fs.readFileSync('temp/items.png').length);
 
     var zipSP = new AdmZip();
-    zipSP.addFile('terrain.png', fs.readFileSync('temp/terrain.png')); // TODO: avoid temp files
-    zipSP.addFile('gui/items.png', fs.readFileSync('temp/items.png'));
+    zipSP.addLocalFile('temp/terrain.png', 'terrain.png'); // TODO: avoid temp files
+    zipSP.addLocalFile('temp/items.png', 'gui/items.png');
     zipSP.addFile('stitchpack.json', JSON.stringify(stitchData));
     zipSP.addFile('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version));
     zipSP.writeZip(outSP);
