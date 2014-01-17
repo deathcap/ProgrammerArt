@@ -21,8 +21,9 @@ var zipRP = new NodeZip(undefined, undefined, zipOpts);
 zipRP.file('pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version), fileOpts);
 zipTP.file('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version), fileOpts);
 
-process(textureRoot + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
-process(textureRoot + 'items/', 'items', 'textures/items/', 'assets/minecraft/textures/items/');
+processTextures(textureRoot + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
+processTextures(textureRoot + 'items/', 'items', 'textures/items/', 'assets/minecraft/textures/items/');
+processSounds();
 
 fs.writeFileSync(outTP, zipTP.generate(zipOpts), 'binary');
 fs.writeFileSync(outRP, zipRP.generate(zipOpts), 'binary');
@@ -42,7 +43,14 @@ Object.keys(rpAdded).forEach(function(category) {
     console.log(category + ': ' + (total - missing) + " / " + total + " = " + (total - missing) / total);
 });
 
-function process(thisRoot, category, tpPrefix, rpPrefix) {
+function processSounds() {
+  var soundsRoot = path.join(root, 'sounds/');
+
+  // TODO: more sounds. https://github.com/deathcap/ProgrammerArt/issues/1
+  zipRP.file('assets/minecraft/sounds/liquid/splash.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '9508_petenice_splash.ogg')), fileOpts);
+};
+
+function processTextures(thisRoot, category, tpPrefix, rpPrefix) {
     var files = fs.readdirSync(thisRoot);
 
     console.log("files = " + files);
