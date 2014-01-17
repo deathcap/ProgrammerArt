@@ -2,7 +2,7 @@ var fs = require('fs');
 var NodeZip = require('node-zip');
 var path = require('path');
 
-var version = '2.0';
+var version = '2.1-dev';
 var root = '../';
 var textureRoot = path.join(root, 'textures/');
 var outTP = 'ProgrammerArt-TexturePack.zip';
