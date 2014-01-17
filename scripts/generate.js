@@ -1,5 +1,5 @@
 var fs = require('fs');
-var AdmZip = require('adm-zip');
+var NodeZip = require('node-zip');
 var path = require('path');
 
 var version = '2.0';
@@ -12,17 +12,20 @@ var outSP = 'ProgrammerArt-StitchPack.zip';
 var image2tp = require('./texturepack_data.js');
 var rpAdded = require('./resourcepack_data.js');
 
-var zipTP = new AdmZip();
-var zipRP = new AdmZip();
+var zipOpts = {base64:false, compression:'DEFLATE', binary:true};
+var fileOpts = {binary:true};
 
-zipRP.addFile('pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version));
-zipTP.addFile('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version));
+var zipTP = new NodeZip(undefined, undefined, zipOpts);
+var zipRP = new NodeZip(undefined, undefined, zipOpts);
+
+zipRP.file('pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version), fileOpts);
+zipTP.file('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version), fileOpts);
 
 process(textureRoot + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
 process(textureRoot + 'items/', 'items', 'textures/items/', 'assets/minecraft/textures/items/');
 
-zipTP.writeZip(outTP);
-zipRP.writeZip(outRP);
+fs.writeFileSync(outTP, zipTP.generate(zipOpts), 'binary');
+fs.writeFileSync(outRP, zipRP.generate(zipOpts), 'binary');
 
 console.log("Wrote " + outTP);
 console.log("Wrote " + outRP);
@@ -55,14 +58,14 @@ function process(thisRoot, category, tpPrefix, rpPrefix) {
             // part of texture pack
             var pathTP = tpPrefix + nameTP + '.png';
 
-            zipTP.addFile(pathTP, buffer);
+            zipTP.file(pathTP, new Uint8Array(buffer), fileOpts);
         }
 
         if (rpAdded[category][nameRP] !== undefined) {
             // part of resource pack
             rpAdded[category][nameRP] = true;
             var pathRP = rpPrefix + nameRP + '.png';
-            zipRP.addFile(pathRP, buffer);
+            zipRP.file(pathRP, new Uint8Array(buffer), fileOpts);
         } else {
             console.log("Unknown file: " + file);
         }
@@ -82,14 +85,17 @@ stitch('temp/terrain.png', root + 'textures/blocks/', stitchMatrices.terrain, ti
     stitchData.coords.items = name2Coord;
     console.log('Writing',outSP);
 
-    console.log(fs.readFileSync('temp/terrain.png').length);
-    console.log(fs.readFileSync('temp/items.png').length);
+    var terrainPNG = fs.readFileSync('temp/terrain.png');
+    var itemsPNG = fs.readFileSync('temp/items.png');
 
-    var zipSP = new AdmZip();
-    zipSP.addLocalFile('temp/terrain.png', 'terrain.png'); // TODO: avoid temp files
-    zipSP.addLocalFile('temp/items.png', 'gui/items.png');
-    zipSP.addFile('stitchpack.json', JSON.stringify(stitchData));
-    zipSP.addFile('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version));
-    zipSP.writeZip(outSP);
+    console.log(terrainPNG.length);
+    console.log(itemsPNG.length);
+
+    var zipSP = new NodeZip(undefined, undefined, zipOpts);
+    zipSP.file('terrain.png', new Uint8Array(terrainPNG), fileOpts); // TODO: avoid temp files
+    zipSP.file('gui/items.png', new Uint8Array(itemsPNG), fileOpts);
+    zipSP.file('stitchpack.json', JSON.stringify(stitchData), fileOpts);
+    zipSP.file('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version), fileOpts);
+    fs.writeFileSync(outSP, zipSP.generate(zipOpts), 'binary');
   });
 });
