@@ -31,6 +31,7 @@ zipTP.file('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPS
 processTextures(textureRoot + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
 processTextures(textureRoot + 'items/', 'items', 'textures/items/', 'assets/minecraft/textures/items/');
 processSounds();
+processAnimations();
 
 fs.writeFileSync(outTP, zipTP.generate(zipOpts), 'binary');
 fs.writeFileSync(outRP, zipRP.generate(zipOpts), 'binary');
@@ -55,6 +56,11 @@ function processSounds() {
 
   // TODO: more sounds. https://github.com/deathcap/ProgrammerArt/issues/1
   zipRP.file('assets/minecraft/sounds/liquid/splash.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '9508_petenice_splash.ogg')), fileOpts);
+};
+
+function processAnimations() {
+  // TODO: more animations. https://github.com/deathcap/ProgrammerArt/issues/10
+  zipRP.file('assets/minecraft/textures/items/compass.png.mcmeta', JSON.stringify({animation: {}}), fileOpts);
 };
 
 function processTextures(thisRoot, category, tpPrefix, rpPrefix) {
