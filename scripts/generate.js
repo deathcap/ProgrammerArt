@@ -19,7 +19,7 @@ var zipTP = new NodeZip(undefined, undefined, zipOpts);
 var zipRP = new NodeZip(undefined, undefined, zipOpts);
 
 var addLicense = function(z) {
-  z.file('LICENSE', fs.readFileSync(root + 'LICENSE', 'utf8'), fileOpts);
+  z.file('LICENSE.txt', fs.readFileSync(root + 'LICENSE', 'utf8'), fileOpts);
 };
 
 addLicense(zipTP);
