@@ -18,6 +18,13 @@ var fileOpts = {binary:true};
 var zipTP = new NodeZip(undefined, undefined, zipOpts);
 var zipRP = new NodeZip(undefined, undefined, zipOpts);
 
+var addLicense = function(z) {
+  z.file('LICENSE', fs.readFileSync(root + 'LICENSE', 'utf8'), fileOpts);
+};
+
+addLicense(zipTP);
+addLicense(zipRP);
+
 zipRP.file('pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version), fileOpts);
 zipTP.file('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version), fileOpts);
 
@@ -100,6 +107,7 @@ stitch('temp/terrain.png', root + 'textures/blocks/', stitchMatrices.terrain, ti
     console.log(itemsPNG.length);
 
     var zipSP = new NodeZip(undefined, undefined, zipOpts);
+    addLicense(zipSP);
     zipSP.file('terrain.png', new Uint8Array(terrainPNG), fileOpts); // TODO: avoid temp files
     zipSP.file('gui/items.png', new Uint8Array(itemsPNG), fileOpts);
     zipSP.file('stitchpack.json', JSON.stringify(stitchData), fileOpts);
