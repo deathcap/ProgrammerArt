@@ -24,6 +24,8 @@ ProgrammerArt is available to download from:
 * [Dropbox](https://github.com/deathcap/ProgrammerArt/issues/9#issuecomment-33195856) 
 * [NodeJS Package Manager (NPM)](https://npmjs.org/package/programmerart-textures), for easily using with using with [voxeljs](http://voxeljs.com/), example:
 
+```
+
     var texturePath = require('programmerart-textures')('');
     var createGame = require('voxel-engine');
 
@@ -34,6 +36,8 @@ ProgrammerArt is available to download from:
             'blocks/stone',
             'blocks/dirt']
         });
+
+```
 
 (alternatively, the [artpacks](https://github.com/deathcap/artpacks) module can load ResourcePack zips directly)
 
