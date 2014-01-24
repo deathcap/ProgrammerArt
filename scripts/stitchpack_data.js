@@ -61,7 +61,7 @@ items: [
   ['leather_leggings', 'chainmail_leggings', 'iron_leggings', 'diamond_leggings', 'gold_leggings', 'arrow', 'quiver', 'gold_ingot',
   'gunpowder', 'bread', 'sign', 'door_wood', 'door_iron', 'bed', 'fireball'],
 
-  ['leather_boots', 'chainmail_boots', 'iron_boots', 'diamond_boots', 'gold_boots', 'stick', 'compass', 'diamond',
+  ['leather_boots', 'chainmail_boots', 'iron_boots', 'diamond_boots', 'gold_boots', 'stick', 'compass_static', 'diamond',
   'redstone_dust', 'clay_ball', 'paper', 'book_normal', 'map_filled', 'seeds_pumpkin', 'seeds_melon'],
 
   ['wood_sword', 'stone_sword', 'iron_sword', 'diamond_sword', 'gold_sword', 'fishing_rod_cast', 'clock', 'bowl', 

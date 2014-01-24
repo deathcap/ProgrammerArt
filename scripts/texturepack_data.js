@@ -317,7 +317,7 @@ module.exports = {
     clock: 'clock',
     coal: 'coal',
     comparator: 'comparator',
-    compass: 'compass',
+    compass_static: 'compass',
     cookie: 'cookie',
     diamond: 'diamond',
     repeater: 'diode',
