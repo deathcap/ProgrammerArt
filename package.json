@@ -1,7 +1,7 @@
 {
   "name": "programmerart-textures",
   "description": "free voxel-related artwork",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "package.js",
   "repository": {
     "type": "git",
