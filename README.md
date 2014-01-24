@@ -10,12 +10,19 @@ Original textures designed for voxel games, freely released for any use.
 ## Releases
 
 While the textures can be used standalone or for other purposes, a Node.js script is included to
-bundle up a [Minecraft](https://minecraft.net/) resource pack and/or texture pack archive. See the 
-tagged [releases](https://github.com/deathcap/ProgrammerArt/releases)
-for all generated packs. ResourcePacks are for MC 1.7+, 1.6, TexturePacks for MC 1.5,
-and StitchPacks for MC 1.4.
+bundle up zip archives into packs compatible with [Minecraft](https://minecraft.net/) and other
+games. The following formats are supported:
 
-Available on NPM for easily using with [voxeljs](http://voxeljs.com/), example:
+* ResourcePack: for MC 1.7+, 1.6, paths begin with `assets`
+* TexturePacks: for MC 1.5, similar but without assets prefix and different filenames
+* StitchPack: for MC 1.4 and earlier, pre-stitched texture atlases
+
+ProgrammerArt is available to download from:
+
+* **[GitHub tagged releases](https://github.com/deathcap/ProgrammerArt/releases)**
+* [Curse client](http://www.curse.com/search?type=texture-packs&search=programmerart)
+* [Dropbox](https://github.com/deathcap/ProgrammerArt/issues/9#issuecomment-33195856) 
+* [NodeJS Package Manager (NPM)](https://npmjs.org/package/programmerart-textures), for easily using with using with [voxeljs](http://voxeljs.com/), example:
 
     var texturePath = require('programmerart-textures')('');
     var createGame = require('voxel-engine');
@@ -27,6 +34,8 @@ Available on NPM for easily using with [voxeljs](http://voxeljs.com/), example:
             'blocks/stone',
             'blocks/dirt']
         });
+
+(alternatively, the [artpacks](https://github.com/deathcap/artpacks) module can load ResourcePack zips directly)
 
 
 ProgrammerArt also has a [thread on Minecraft Forums](http://www.minecraftforum.net/topic/2145418-).
