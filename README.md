@@ -47,6 +47,6 @@ ProgrammerArt also has a [thread on Minecraft Forums](http://www.minecraftforum.
 
 ## License
 
-Creative Commons Zero 1.0 Universal Public Domain Dedication
+[Creative Commons 4.0 Attribution International (CC BY 4.0)](http://creativecommons.org/licenses/by/4.0/)
 
 
