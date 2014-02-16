@@ -57,7 +57,7 @@ function processSounds() {
 
   // TODO: more sounds. https://github.com/deathcap/ProgrammerArt/issues/1
   zipRP.file('assets/minecraft/sounds/liquid/splash.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '9508_petenice_splash.ogg')), fileOpts);
-  zipRP.file('assets/minecraft/sounds/damage/fallsmall.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '44429_thecheeseman_hurt2.wav')), fileOpts);
+  zipRP.file('assets/minecraft/sounds/damage/fallsmall.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '44429_thecheeseman_hurt2.ogg')), fileOpts);
 };
 
 function processAnimations() {
