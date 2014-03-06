@@ -62,7 +62,15 @@ function processSounds() {
 
 function processAnimations() {
   // TODO: more animations. https://github.com/deathcap/ProgrammerArt/issues/10
+  // and TODO: list all .mcmeta files on disk, ensure included if expected
   zipRP.file('assets/minecraft/textures/items/compass.png.mcmeta', JSON.stringify({animation: {}}), fileOpts);
+  zipRP.file('assets/minecraft/textures/blocks/water_flow.png.mcmeta', JSON.stringify(
+        {
+          animation: 
+          {
+            frametime: 10
+          }
+        }), fileOpts);
 };
 
 function processTextures(thisRoot, category, tpPrefix, rpPrefix) {

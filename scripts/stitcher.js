@@ -44,7 +44,8 @@ var stitch = function(outFile, pathPrefix, matrix, tileWidth, tileHeight, cb) {
 
     png.on('parsed', function() {
       if (this.width !== tileWidth || this.height !== tileHeight)
-        throw new Error('unexpected dimensions on '+pathFS+': '+this.width+'x'+this.height+' !== '+tileWidth+'x'+tileHeight);
+        // TODO: handle multi-framed textures (animated water_flow, etc.)
+        console.log('WARNING: unexpected dimensions on '+pathFS+': '+this.width+'x'+this.height+' !== '+tileWidth+'x'+tileHeight);
      
       this.bitblt(stitched, 0, 0, tileWidth, tileHeight, tileX * tileWidth, tileY * tileHeight);
 
