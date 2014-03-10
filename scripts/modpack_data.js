@@ -15,7 +15,7 @@ module.exports = {
 */
 
 var templates = {
-  ingot: ['thermalexpansion/items/material/Ingot<UCFIRST>', 'ic2/textures/items/resources/itemIngot<UCFIRST>', 'forestry/textures/items/ingot<UCFIRST>'],
+  ingot: ['thermalexpansion/items/material/Ingot<UCFIRST>', 'ic2/textures/items/resources/itemIngot<UCFIRST>', 'tinker/textures/items/materials/material_<LOWER>ingot', 'forestry/textures/items/ingot<UCFIRST>'],
   //TODO dust: ['thermalexpansion/items/material/Dust<UCFIRST>', 'ic2/textures/items/resources/itemDust<UCFIRST>'],
   ore: ['thermalexpansion/blocks/ores/Ore<UCFIRST>', 'ic2/textures/blocks/blockOre<UCFIRST>', 'tinker/textures/blocks/ore_<LOWER>', 'forestry/textures/blocks/ores/<LOWER>', 'metallurgy/textures/blocks/Base/<UCFIRST>Ore'],
   //TODO block: ['thermalexpansion/blocks/storage/Block<UCFIRST>', 'ic2/textures/blocks/blockMetal<UCFIRST>', 'metallurgy/textures/blocks/Base/<UCFIRST>Block'],
