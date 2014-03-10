@@ -11,6 +11,7 @@ var outSP = 'ProgrammerArt-StitchPack.zip';
 
 var image2tp = require('./texturepack_data.js');
 var rpAdded = require('./resourcepack_data.js');
+var modpackAs = require('./modpack_data.js');
 
 var zipOpts = {base64:false, compression:'DEFLATE', binary:true};
 var fileOpts = {binary:true};
@@ -97,6 +98,15 @@ function processTextures(thisRoot, category, tpPrefix, rpPrefix) {
             rpAdded[category][nameRP] = true;
             var pathRP = rpPrefix + nameRP + '.png';
             zipRP.file(pathRP, new Uint8Array(buffer), fileOpts);
+        } else if (modpackAs[category][nameRP] !== undefined) {
+            // part of resource pack for an addon modification; add for each
+            var modRenames = modpackAs[category][nameRP];
+            for (var j = 0; j < modRenames.length; j += 1) {
+              var modRename = modRenames[j];
+              var pathRP = modRename + '.png';
+
+              zipRP.file(pathRP, new Uint8Array(buffer), fileOpts);
+            }
         } else {
             console.log("Unknown file: " + file);
         }
