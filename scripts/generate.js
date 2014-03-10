@@ -103,7 +103,7 @@ function processTextures(thisRoot, category, tpPrefix, rpPrefix) {
             var modRenames = modpackAs[category][nameRP];
             for (var j = 0; j < modRenames.length; j += 1) {
               var modRename = modRenames[j];
-              var pathRP = modRename + '.png';
+              var pathRP = 'assets/' + modRename + '.png';
 
               zipRP.file(pathRP, new Uint8Array(buffer), fileOpts);
             }
