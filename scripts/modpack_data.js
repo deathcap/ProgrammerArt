@@ -5,14 +5,16 @@ var templates = {
   dust: ['thermalexpansion/items/material/Dust<UCFIRST>', 'ic2/textures/items/resources/itemDust<UCFIRST>'],
   ore: ['thermalexpansion/blocks/ores/Ore<UCFIRST>', 'ic2/textures/blocks/blockOre<UCFIRST>', 'tinker/textures/blocks/ore_<LOWER>', 'forestry/textures/blocks/ores/<LOWER>', 'metallurgy/textures/blocks/Base/<UCFIRST>Ore'],
   block: ['thermalexpansion/blocks/storage/Block<UCFIRST>', 'ic2/textures/blocks/blockMetal<UCFIRST>', 'tinker/textures/blocks/compressed_<LOWER>', 'metallurgy/textures/blocks/Base/<UCFIRST>Block'],
+  nugget: ['magicbees/textures/items/nugget<UCFIRST>', 'thaumcraft/textures/items/nugget<LOWER>', 'tinker/textures/items/materials/material_nugget_<LOWER>'],
 };
 
 
-var ALL_FORMS = ['ingot', 'dust', 'ore', 'block'];
+var ALL_FORMS = ['ingot', 'dust', 'ore', 'block', 'nugget'];
 
 var bases = {
   copper: ALL_FORMS,
   tin: ALL_FORMS,
+  iron: ['dust', 'nugget'], // only these two, since the rest are part of vanilla
 }; 
 
 var ucfirst = function(s) {
