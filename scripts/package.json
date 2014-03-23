@@ -18,6 +18,6 @@
   "license": "CC0-1.0",
   "dependencies": {
     "pngjs": "~0.4.0",
-    "node-zip": "~1.0.1"
+    "node-zip": "~1.1.0"
   }
 }
