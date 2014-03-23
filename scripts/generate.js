@@ -28,6 +28,7 @@ addLicense(zipTP);
 addLicense(zipRP);
 
 zipRP.file('pack.mcmeta', fs.readFileSync(root + 'pack.mcmeta', 'utf8').replace('SNAPSHOT', version), fileOpts);
+zipRP.file('pack.png', new Uint8Array(fs.readFileSync(root + 'pack.png')), fileOpts);
 zipTP.file('pack.txt', fs.readFileSync(root + 'pack.txt', 'utf8').replace('SNAPSHOT', version), fileOpts);
 
 processTextures(textureRoot + 'blocks/', 'blocks', 'textures/blocks/', 'assets/minecraft/textures/blocks/');
