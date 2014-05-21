@@ -3,6 +3,8 @@
 // (existence of key signifies inclusion, set to false to start out)
 module.exports = {
   blocks: {
+    no_texture: false, // not a real block, but it is convenient to include here
+
     anvil_base: false,
     anvil_top_damaged_0: false,
     anvil_top_damaged_1: false,

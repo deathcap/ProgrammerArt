@@ -2,7 +2,7 @@ var fs = require('fs');
 var NodeZip = require('node-zip');
 var path = require('path');
 
-var version = '2.2.1-dev';
+var version = '2.2.2-dev';
 var root = '../';
 var textureRoot = path.join(root, 'textures/');
 var outTP = 'ProgrammerArt-TexturePack.zip';
@@ -60,7 +60,7 @@ function processSounds() {
   // TODO: more sounds. https://github.com/deathcap/ProgrammerArt/issues/1
   zipRP.file('assets/minecraft/sounds/liquid/splash.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '9508_petenice_splash.ogg')), fileOpts);
   zipRP.file('assets/minecraft/sounds/damage/fallsmall.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '44429_thecheeseman_hurt2.ogg')), fileOpts);
-  zipRP.file('assets/minecraft/sounds/random/glass1.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '71947_cmusounddesign_bm-glass-break.ogg', fileOpts);
+  zipRP.file('assets/minecraft/sounds/random/glass1.ogg', new Uint8Array(fs.readFileSync(soundsRoot + '71947_cmusounddesign_bm-glass-break.ogg')), fileOpts);
 };
 
 function processAnimations() {
