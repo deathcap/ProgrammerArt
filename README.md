@@ -13,7 +13,7 @@ While the textures can be used standalone or for other purposes, a Node.js scrip
 bundle up zip archives into packs compatible with [Minecraft](https://minecraft.net/) and other
 games. The following formats are supported:
 
-* ResourcePack: for MC 1.7+, 1.6, paths begin with `assets`
+* ResourcePack: for MC 1.8, 1.7, 1.6, paths begin with `assets`
 * TexturePacks: for MC 1.5, similar but without assets prefix and different filenames
 * StitchPack: for MC 1.4 and earlier, pre-stitched texture atlases
 
