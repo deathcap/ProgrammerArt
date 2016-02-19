@@ -448,6 +448,9 @@ module.exports = {
     banner_base: false,
     banner_overlay: false,
     dragon_breath: false,
+    end_crystal: false,
+    elytra: false,
+    broken_elytra: false,
 
     apple: false,
     apple_golden: false,
