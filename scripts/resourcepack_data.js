@@ -433,6 +433,16 @@ module.exports = {
     wool_colored_yellow: false
   },
   items: {
+    acacia_boat: false,
+    birch_boat: false,
+    spruce_boat: false,
+    oak_boat: false,
+    beetroot: false,
+    beetroot_seeds: false,
+    beetroot_soup: false,
+    chorus_fruit: false,
+    chorus_fruit_popped: false,
+
     apple: false,
     apple_golden: false,
     arrow: false,
@@ -491,6 +501,11 @@ module.exports = {
     diamond_sword: false,
     door_iron: false,
     door_wood: false,
+    door_birch: false,
+    door_acacia: false,
+    door_spruce: false,
+    door_dark_oak: false,
+    door_jungle: false,
     dye_powder_black: false,
     dye_powder_blue: false,
     dye_powder_brown: false,
