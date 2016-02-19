@@ -20,7 +20,7 @@ games. The following formats are supported:
 ProgrammerArt is available to download from:
 
 * **[GitHub tagged releases](https://github.com/deathcap/ProgrammerArt/releases)**
-* [Curse client](http://www.curse.com/search?type=texture-packs&search=programmerart)
+* [Curse client](http://www.curse.com/search/texture-packs?game-slug=minecraft&search=programmerart)
 * [Dropbox](https://github.com/deathcap/ProgrammerArt/issues/9#issuecomment-33195856) 
 * [NodeJS Package Manager (NPM)](https://npmjs.org/package/programmerart-textures), for easily using with using with [voxeljs](http://voxeljs.com/), example:
 
