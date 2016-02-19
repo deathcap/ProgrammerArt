@@ -442,6 +442,9 @@ module.exports = {
     beetroot_soup: false,
     chorus_fruit: false,
     chorus_fruit_popped: false,
+    spectral_arrow: false,
+    tipped_arrow_base: false,
+    tipped_arrow_head: false,
 
     apple: false,
     apple_golden: false,
