@@ -402,6 +402,7 @@ module.exports = {
     vine: false,
     water_flow: false,
     water_still: false,
+    water_overlay: false,
     waterlily: false,
     web: false,
     wheat_stage_0: false,
